@@ -13,7 +13,7 @@
         <img class="logo" src="{{asset("/img/logo.png")}}">
         <span class="title">广州血液中心无偿献血综合服务平台</span>
         <div class="logout-con">
-            <div class="user">你好！</div>
+            <div class="user">你好！KUN</div>
             <a href="/BloodDistribution/public/logout1"><div class="logout-btn">安全退出</div></a>
         </div>
     </header>
@@ -37,7 +37,7 @@
                 </tr>
                 <tr>
                     <td>申请人</td>
-                    <td>李健明</td>
+                    <td>KUN</td>
                     <td>联系电话</td>
                     <td>8888888888</td>
                 </tr>

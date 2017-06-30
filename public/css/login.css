@@ -51,6 +51,12 @@ section .login-con{
     padding-top: 15px;
 }
 
+section .login-con .help-block{
+    color: #ff0000;
+    float: left;
+    font-size: 14px;
+}
+
 section .login-title{
     font-size: 28px;
     font-weight: bolder;
@@ -80,6 +86,13 @@ section .input-con .check-code{
     width: 135px;
     height: 38px;
     float: left;
+    margin-bottom: 0;
+}
+
+section .input-con .err-con{
+    height: 25px;
+    line-height: 30px;
+    margin-bottom: 10px;
 }
 
 section .input-con button{

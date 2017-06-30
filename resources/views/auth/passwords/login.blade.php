@@ -20,15 +20,8 @@
                 <div class="input-con">
                     <input type="text" id="uName" class="uName" name="email" placeholder="用户名">
                     <input type="password" id="uPwd" class="uPwd" name="password" placeholder="密码">
-                    <input type="text" class="check-code" name="checkCode" required>
-                    <img src="/BloodDistribution/public/checkCode" style="width: 100px;margin-left:2%;" onclick="getCode()" id="code"/>
-                    <div class="err-con">
-                        @if ($errors->has('email'))
-                            <span class="help-block">
-                                <strong>用户名或者密码错误</strong>
-                            </span>
-                        @endif
-                    </div>
+                        <input type="text" class="check-code" name="checkCode" required>
+                        <img src="/BloodDistribution/public/checkCode" style="width: 100px;margin-left:2%;" onclick="getCode()" id="code"/>
                     <button class="submit">登陆</button>
                 </div>
             </div>
@@ -38,4 +31,6 @@
         广州血液中心无偿献血综合服务平台 报障热线：83622354
     </footer>
 </body>
-</html>
+{{--<script src="{{asset("/js/jquery.js")}}"></script>--}}
+<script src="{{asset("/js/login.js")}}"></script>
+{{--</html>--}}

@@ -25,30 +25,13 @@ Route::get('logins',function (){
 
 //用户登录 url : /BloodDistribution/public/loginn
 Route::get('loginn',function (){
-    return view('login.login');
-});
-
-//管理查询 url : /BloodDistribution/public/manager
-Route::match(['get','post'],"manager", 'Blood\BloodController@getAll');
-
-//项目主页 url : /BloodDistribution/public/text
-Route::get('text',function (){
-    return view('index.main');
+    return view('auth.login');
 });
 
 //用户登出 url : /BloodDistribution/public/logout1
 Route::get('logout1' ,'Blood\BloodController@logout');
 
-//发布页面 url : /BloodDistribution/public/apply
-Route::get('apply',function (){
-    return view('apply.apply',['error'=>'申请不成功']);
-});
 
-//提交申请 url : /BloodDistribution/public/publish
-Route::post('publish','Blood\BloodController@insert');
-
-//删除信息
-Route::post('delete','Blood\BloodController@delete');
 
 //测试 url : /BloodDistribution/public/testPost
 Route::get('testPost',function (){
@@ -85,3 +68,24 @@ Auth::routes();
 
 //主页面 url : /BloodDistribution/public/home
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => 'auth'],function (){
+    //发布页面 url : /BloodDistribution/public/apply
+    Route::get('apply',function (){
+        return view('apply.apply',['error'=>'申请不成功']);
+    });
+
+    //提交申请 url : /BloodDistribution/public/publish
+    Route::post('publish','Blood\BloodController@insert');
+
+    //删除信息
+    Route::post('delete','Blood\BloodController@delete');
+
+    //管理查询 url : /BloodDistribution/public/manager
+    Route::match(['get','post'],"manager", 'Blood\BloodController@getAll');
+
+    //项目主页 url : /BloodDistribution/public/text
+    Route::get('text',function (){
+        return view('index.main');
+    });
+});

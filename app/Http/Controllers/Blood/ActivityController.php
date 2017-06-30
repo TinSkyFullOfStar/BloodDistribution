@@ -17,23 +17,42 @@ use Illuminate\Support\Facades\DB;
 class ActivityController extends Controller
 {
     public function getAll(Request $request){
-        $input = $request->except('_token');
+        $input = $request->except(['_token','page']);
 
         if ($request->isMethod('post') && count($input) > 0){
             $param = [];
-            foreach ($input as $key => $value)
-                if ( $value != null )
-                    $param[$key] = $value;
+            $date = null;
+            $title = null;
+            $contents = null;
 
-            $contents = DB::table('messages')
-                ->join('message_types', 'message_types.id', '=', 'messages.type_id')
-                ->join('message_statuses', 'message_statuses.id', '=', 'messages.status_id')
-                ->join('admins', 'admins.id', '=', 'messages.status_id')
-                ->join('media', 'media.id', '=', 'messages.media_id')
-                ->select('messages.*', 'message_types.type', 'message_statuses.status','admins.username','media.media')
-                ->where($param)
-                ->orderBy('id', 'desc')
-                ->paginate(5);
+
+            foreach ($input as $key => $value)
+                if ( $value != null && $key != 'created_at')
+                    $param[$key] = $value;
+                else if ($key == 'created_at' && $value != null)
+                    $date = $value;
+
+            if ($date == null)
+                $contents = DB::table('messages')
+                    ->join('message_types', 'message_types.id', '=', 'messages.type_id')
+                    ->join('message_statuses', 'message_statuses.id', '=', 'messages.status_id')
+                    ->join('admins', 'admins.id', '=', 'messages.status_id')
+                    ->join('media', 'media.id', '=', 'messages.media_id')
+                    ->select('messages.*', 'message_types.type', 'message_statuses.status','admins.username','media.media')
+                    ->where($param)
+                    ->orderBy('id', 'desc')
+                    ->paginate(10);
+            else
+                $contents = DB::table('messages')
+                    ->join('message_types', 'message_types.id', '=', 'messages.type_id')
+                    ->join('message_statuses', 'message_statuses.id', '=', 'messages.status_id')
+                    ->join('admins', 'admins.id', '=', 'messages.status_id')
+                    ->join('media', 'media.id', '=', 'messages.media_id')
+                    ->whereDate('messages.created_at',$date)
+                    ->select('messages.*', 'message_types.type', 'message_statuses.status','admins.username','media.media')
+                    ->orderBy('id', 'desc')
+                    ->paginate(10);
+
         }else
             $contents = DB::table('messages')
                 ->join('message_types', 'message_types.id', '=', 'messages.type_id')
@@ -42,7 +61,7 @@ class ActivityController extends Controller
                 ->join('media', 'media.id', '=', 'messages.media_id')
                 ->select('messages.*', 'message_types.type', 'message_statuses.status','admins.username','media.media')
                 ->orderBy('id', 'desc')
-                ->paginate(5);
+                ->paginate(10);
         return view('check.check',['contents'=>$contents]);
     }
 }

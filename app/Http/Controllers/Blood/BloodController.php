@@ -94,7 +94,7 @@ class BloodController extends Controller
         $message = null;
         $input = $request->except('_token');
 //        $input['admin_id'] = $request->session()->get('id');
-        $input['admin_id'] = 2;
+        $input['admin_id'] = 1;
         $input['media_id'] = 1;
         $input['status_id'] = 1;
 
