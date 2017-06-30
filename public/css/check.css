@@ -1,0 +1,314 @@
+body,html{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    width: 100%;
+    min-width: 1024px;
+    min-height:600px;
+}
+
+body {
+    position: relative;
+}
+
+ul,
+li {
+    list-style: none;
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+
+/* -----  base css   -------*/
+
+table {
+    width: 100%;
+    margin-top: 5px;
+    border: 1px solid #d7d7d7;
+}
+
+table tr td,
+table tr th {
+    border-top: 1px solid #d7d7d7;
+    border-right: 1px solid #d7d7d7;
+    font-size: 13px;
+    height: 35px;
+    height: 35px;
+    padding: 0 10px;
+    
+}
+
+table tr th {
+    border-top: none;
+    color: #006699;
+}
+
+table tr td:last-child,
+table tr th:last-child {
+    border-right: none;
+}
+
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.pull-right {
+    float: right;
+}
+
+.pull-left {
+    float: left;
+}
+
+.btn {
+    width: 70px;
+    height: 25px;
+    background-color: transparent;
+    border: 1px solid #d7d7d7;
+    margin-right: 10px;
+    cursor: pointer;
+    outline: none;
+}
+
+/* -----  base css   -------*/
+
+
+header {
+    width: 100%;
+    height: 87px;
+    background: url('../img/nav.png');
+    background-size: cover;
+    padding-top: 10px;
+    z-index: 2;
+}
+
+header .logo{
+    width: 80px;
+    height: 68px;
+    margin-left: 3%;
+}
+
+header .title{
+    font-size: 26px;
+    line-height: 60px;
+    vertical-align: text-bottom;
+    font-weight: bolder;
+    color: #fff;
+}
+
+header .logout-con {
+    float: right;
+    margin-top: 20px;
+    margin-right: 5%;
+    font-size: 14px;
+    color: #FFFFFF;
+}
+
+header .logout-btn {
+    color: #FFFFFF;
+}
+
+header .logout-con .user {
+    line-height: 24px;
+    height: 25px;
+}
+
+header .logout-con .user::before{
+    content: ' ';
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    float: left;
+    background: url("../img/admin.png") center no-repeat;
+    background-size: contain;
+    margin-right: 5px;
+}
+
+header .logout-con .logout-btn {
+    line-height: 21px;
+    cursor: pointer;
+    margin-top: 5px;
+    text-decoration: underline;
+}
+
+header .logout-con .logout-btn::before {
+    content: '';
+    width: 22px;
+    height:22px;
+    display: inline-block;
+    float: left;
+    background: url("../img/move.png") center no-repeat;
+    background-size: contain;
+    margin-right: 5px;
+}
+
+nav {
+    height: 35px;
+    width: 100%;
+    background-color: #ccccff;
+    padding: 0 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+nav > ul li {
+    display: inline-block;
+    width: 90px;
+    line-height: 35px;
+    text-align: center;
+    float: left;
+    margin-left: -1px;
+    color: #2e6699;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+nav > ul li:hover {
+    background-color: #dcdcdc;
+}
+
+nav > ul li.active {
+    background-color: #dcdcdc;
+}
+
+section {
+    min-height: 400px;
+    padding-bottom: 100px;
+}
+
+section .content {
+    padding: 0 10px;
+    margin-top: 5px;
+}
+
+section > .tag-bar {
+    height: 40px;
+    padding-left: 5px;
+    position: relative;
+    border-bottom: 2px solid #abc0d3;
+}
+
+section > .tag-bar .tag-item {
+    float: left;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    margin-top: 5px;
+    border: 1px solid #d7d7d7;
+    border-bottom: 0;
+    padding: 0 15px;
+    border-radius: 2px;
+    background-color: #d8e2eb;
+}
+
+section > .tag-bar .active {
+    background-color: #f6f6f6;
+}
+
+
+section .search-panel {
+    border: 1px solid #d7d7d7;
+    padding: 10px 0 10px 10px;
+}
+
+section .search-panel form {
+    display: inline-block;
+}
+
+section .search-panel #title {
+    width: 250px;
+}
+
+section .search-panel #applicant{
+    width: 150px;
+}
+
+section .search-panel .search{
+    margin-left: 40px;
+    background-color: #a9a9a9;
+    color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+}
+
+section .search-panel .add {
+    margin-right: 30px;
+    border: none;
+    background-color: #ff7f50;
+    color: #fff;    
+    border-radius: 3px;
+}
+
+section .show-table{
+    min-height: 300px;
+} 
+
+section .page-con{
+    width: 370px;
+    margin: 0 auto;
+}
+
+section .page-con .page-item {
+    padding: 5px 10px;
+    font-size: 13px;
+}
+
+.pagination {
+    text-align: center;
+}
+
+.pagination > li {
+    font-size: 13px;
+    background-color: transparent;
+    border: 1px solid #d7d7d7;
+    margin-right: 10px;
+    cursor: pointer;
+    outline: none;
+    display: inline-block;
+}
+
+.pagination > li a,
+.pagination > li span{
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+.pagination .active {
+    background-color: #208cd5;
+    color: #ffffff;
+}
+
+.pagination .disabled {
+    background-color: #8c8c8c;
+    color: #CCCCCC;
+    opacity: 0.6;
+}
+
+.pagination .disabled:hover {
+    cursor: not-allowed;
+}
+
+footer{
+    position: absolute;
+    bottom: 0;
+    height: 60px;
+    width: 100%;
+    background: url('../img/nav.png');
+    background-size: cover;
+    text-align: center;
+    color: #fff;
+    line-height: 60px; 
+}
